@@ -1,0 +1,417 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Subsidies</title>
+    <style>
+        /* Body and General Layout */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(45deg, #00b09b, #96c93d);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .hero-section p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+        }
+
+        /* Navigation */
+        .header nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f1f1f1;
+            text-decoration: underline;
+        }
+
+        /* Content Section */
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 15px;
+            margin: 20px auto;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .layout {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 300px;
+          max-height: 400px;
+          overflow-y: auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .sidebar select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .sidebar button {
+            background-color: white;
+            color: #00b09b;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar button:hover {
+            background-color: #f4f4f4;
+            color: #008e7e;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            margin-left: 40px;
+        }
+
+        /* Subsidy Cards */
+        .subsidy-card {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .subsidy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .subsidy-card h2 {
+            color: #00b09b;
+            margin-bottom: 10px;
+        }
+
+        .subsidy-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .subsidy-card button {
+            background-color: #00b09b;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subsidy-card button:hover {
+            background-color: #008e7e;
+        }
+
+        /* Pagination Styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .page-link {
+            padding: 12px 25px;
+            background-color: #00b09b;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .page-link:hover {
+            background-color: #008e7e;
+        }
+
+        .page-link.active {
+            background-color: #006f5e;
+            font-weight: bold;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #00b09b;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            font-size: 1.3em;
+            margin: 15px 0;
+        }
+
+        .footer-content a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-content a:hover {
+            color: #f1f1f1;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="hero-section">
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#subsidies">Subsidies</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <h1>Farmer Subsidies Portal</h1>
+            <p>Discover and apply for subsidies available for Indian farmers.</p>
+        </header>
+    </div>
+
+    <!-- Content Section with Sidebar and Subsidy List -->
+    <div class="content-section">
+        <div class="layout">
+            <!-- Sidebar for filtering options -->
+            <aside class="sidebar">
+                <h3>Filter Subsidies</h3>
+                <label for="crop-type">Type of Crop:</label>
+                <select id="crop-type">
+                    <option value="all">All</option>
+                    <option value="rice">Rice</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="cotton">Cotton</option>
+                    <option value="others">Others</option>
+                </select>
+
+                <label for="irrigation-support">Irrigation Support:</label>
+                <select id="irrigation-support">
+                    <option value="all">All</option>
+                    <option value="drip">Drip Irrigation</option>
+                    <option value="sprinkler">Sprinkler Irrigation</option>
+                    <option value="canal">Canal Irrigation</option>
+                </select>
+
+                <label for="fertilizer-support">Fertilizer Support:</label>
+                <select id="fertilizer-support">
+                    <option value="all">All</option>
+                    <option value="chemical">Chemical Fertilizer</option>
+                    <option value="organic">Organic Fertilizer</option>
+                    <option value="compost">Compost</option>
+                </select>
+
+                <label for="machinery-support">Machinery Support:</label>
+                <select id="machinery-support">
+                    <option value="all">All</option>
+                    <option value="tractor">Tractor</option>
+                    <option value="harvester">Harvester</option>
+                    <option value="pumps">Pumps</option>
+                </select>
+
+                <label for="insurance">Insurance:</label>
+                <select id="insurance">
+                    <option value="all">All</option>
+                    <option value="crop">Crop Insurance</option>
+                    <option value="livestock">Livestock Insurance</option>
+                </select>
+
+                <label for="landholding-size">Landholding Size:</label>
+                <select id="landholding-size">
+                    <option value="all">All</option>
+                    <option value="small">Small</option>
+                    <option value="marginal">Marginal</option>
+                    <option value="large">Large</option>
+                </select>
+
+                <label for="region">Geographical Region:</label>
+                <select id="region">
+                    <option value="all">All</option>
+                    <option value="north">North</option>
+                    <option value="south">South</option>
+                    <option value="east">East</option>
+                    <option value="west">West</option>
+                </select>
+
+                <label for="organic-farming">Organic Farming:</label>
+                <select id="organic-farming">
+                    <option value="all">All</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <!-- Filter Button -->
+                <button onclick="applyFilters()">Apply Filters</button>
+            </aside>
+
+            <!-- Main content for subsidy cards -->
+            <div id="subsidy-list" class="main-content"></div>
+        </div>
+    </div>
+
+    <!-- Pagination Section -->
+    <div class="pagination" id="pagination"></div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <h2>Contact Us</h2>
+            <p>Email: info@farmersubsidies.com</p>
+            <p>Phone: +91 1234567890</p>
+            <a href="#contact">Learn More</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Pagination -->
+    <script>
+        const subsidies = [
+            { title: 'Subsidy 1', description: 'Description for subsidy 1' },
+            { title: 'Subsidy 2', description: 'Description for subsidy 2' },
+            { title: 'Subsidy 3', description: 'Description for subsidy 3' },
+            { title: 'Subsidy 4', description: 'Description for subsidy 4' },
+            { title: 'Subsidy 5', description: 'Description for subsidy 5' },
+            { title: 'Subsidy 6', description: 'Description for subsidy 6' },
+            { title: 'Subsidy 7', description: 'Description for subsidy 7' },
+            { title: 'Subsidy 8', description: 'Description for subsidy 8' },
+            { title: 'Subsidy 9', description: 'Description for subsidy 9' },
+            { title: 'Subsidy 10', description: 'Description for subsidy 10' },
+            { title: 'Subsidy 11', description: 'Description for subsidy 11' },
+            { title: 'Subsidy 12', description: 'Description for subsidy 12' },
+            { title: 'Subsidy 13', description: 'Description for subsidy 13' },
+            { title: 'Subsidy 14', description: 'Description for subsidy 14' },
+            { title: 'Subsidy 15', description: 'Description for subsidy 15' },
+        ];
+
+        const itemsPerPage = 10;
+        let currentPage = 1;
+
+        function displaySubsidies(page) {
+            const subsidyList = document.getElementById('subsidy-list');
+            subsidyList.innerHTML = '';
+
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const subsidiesToDisplay = subsidies.slice(start, end);
+
+            subsidiesToDisplay.forEach(subsidy => {
+                const subsidyCard = document.createElement('div');
+                subsidyCard.classList.add('subsidy-card');
+                subsidyCard.innerHTML = `
+                    <h2>${subsidy.title}</h2>
+                    <p>${subsidy.description}</p>
+                    <button>Learn More</button>
+                `;
+                subsidyList.appendChild(subsidyCard);
+            });
+        }
+
+        function setupPagination() {
+            const totalPages = Math.ceil(subsidies.length / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLink = document.createElement('span');
+                pageLink.classList.add('page-link');
+                if (i === currentPage) {
+                    pageLink.classList.add('active');
+                }
+                pageLink.textContent = i;
+                pageLink.onclick = function() {
+                    currentPage = i;
+                    displaySubsidies(currentPage);
+                    setupPagination();
+                };
+                pagination.appendChild(pageLink);
+            }
+        }
+
+        displaySubsidies(currentPage);
+        setupPagination();
+    </script>
+</body>
+</html>
